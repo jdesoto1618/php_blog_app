@@ -10,4 +10,22 @@
 			$this->load->view('posts/index', $data);
 			$this->load->view('templates/footer');
     }
+
+    // set the view for each post
+    public function view($slug = null){
+      // get the post from the database according to the slug
+      $data['post'] = $this->post_model->get_posts($slug);
+
+      // page not found for viewing nonexistent post
+      if(empty($data['post'])){
+        show_404();
+      }
+
+      // title for each post, show this on posts/view once the button is clicked
+      $data['title'] = $data['post']['title'];
+      // load header, footer, and view page on posts/view
+      $this->load->view('templates/header');
+			$this->load->view('posts/view', $data);
+			$this->load->view('templates/footer');
+    }
   }
