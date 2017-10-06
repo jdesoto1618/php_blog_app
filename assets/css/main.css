@@ -1,0 +1,20 @@
+/*set background color for all pages*/
+body {
+  background-color: #FDF3E7;
+}
+
+/*set navbar edges to be square*/
+.navbar {
+  border-radius: 0;
+}
+
+/* set style on post timestamp */
+.post_date {
+  display: block;
+  margin: 4px 0; /* margin on top and bottom only */
+  /*padding shorthand is top right bottom left*/
+  padding: 4px 0 4px 10px; /* set padding on top, left, and bottom only */
+  background: #7E8F7C;
+  color: #FDF3E7;
+  border-radius: 10px;
+}
