@@ -1,4 +1,4 @@
-<h1 class="text-center">You're on the <?= $title ?> Page!</h1>
+<h1 class="text-center"><?= $title ?>!</h1>
 <hr class="horizontal">
 <!-- loop through each post -->
 <?php foreach ($posts as $post) : ?>
@@ -8,5 +8,5 @@
   <p><?= $post['body']?></p>
   <br>
   <!-- link to view a specific post. use site_url so the address becomes /php_blog/posts/slugname -->
-  <p><a class="btn btn-primary" href="<?= site_url('/posts/'.$post['slug']); ?>">View Post</a></p>
+  <p><a class="btn btn-primary view_post" href="<?= site_url('/posts/'.$post['slug']); ?>">View Post</a></p>
 <?php endforeach; ?>
