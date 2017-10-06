@@ -3,10 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Joe's Blog</title>
-    <!-- Bootstrap, CSS -->
+    <!-- Bootstrap CDN, CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Bootstrap, JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     <!-- CSS stylesheet link -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
   </head>
