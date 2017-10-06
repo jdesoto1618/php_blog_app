@@ -6,6 +6,7 @@
 				show_404();
 			}
 			$data['title'] = ucfirst($page);
+			// these lines will load the header and footer on each page in views/pages... make sure to set these pages up in the views. This is done so the same header and footer are shown on any page created inside views/pages
 			$this->load->view('templates/header');
 			$this->load->view('pages/'.$page, $data);
 			$this->load->view('templates/footer');
