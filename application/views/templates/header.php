@@ -8,7 +8,7 @@
     <!-- Bootstrap, JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     <!-- CSS stylesheet link -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
   </head>
   <body>
     <nav class="navbar navbar-inverse">
