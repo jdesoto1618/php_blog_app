@@ -30,14 +30,15 @@
               <!-- solution to this was to set the config for the base url to point to port 8080. this is located in /application/config/config.php -->
               <!-- $config['base_url'] = 'http://localhost:8080/php_blog/'; -->
               <li><a href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a></li>
-              <li><a href="<?php echo base_url(); ?>/about">About</a></li>
+              <li><a href="<?php echo base_url(); ?>about">About</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Sign In</a></li>
+              <li><a href="<?php echo base_url(); ?>sign_in">Sign In</a></li>
             </ul>
           </div><!-- .navbar-collapse -->
         </div><!-- .container-fluid -->
       </nav>
   </head>
   <body>
+    <div class="container">
