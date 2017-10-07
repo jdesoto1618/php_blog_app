@@ -3,13 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>Joe's Blog</title>
+    <!-- CKEditor text editor CDN -->
+    <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
     <!-- Bootstrap CDN, CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- CSS stylesheet link -->
+    <!-- CSS stylesheet link. ended up using main.css?v=<?//=time();?> because the css file wouldnt always reload the local changes. SO reports many complicated solutions for this, but I ended up using this one. Comments also say this will NOT work in prod.... this solution may end up removing caching abilties in css. may need to just use ctrl shift r to hard refresh changes in cache. another simple solution is to disable cache in network tab under chrome dev tools -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <!-- change container-fluid class to container so the navbar items have padding -->
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->

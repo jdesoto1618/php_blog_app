@@ -13,6 +13,11 @@ body {
   cursor: default;
 }
 
+/* set top margin on page h1's */
+h1.text-center {
+  margin-top: 15vh;
+}
+
 /* set style on post timestamp */
 .post_date {
   display: block;
@@ -79,8 +84,8 @@ body {
   /* set blurred shadow all around create post form: horizontal-offset 0, vertical offset 0, blur size/intensity, color */
   box-shadow: 0 0 10px #c63d0f;
   border-radius: 3px;
-  width: 40%;
-  margin-left: 30%; /* center the form on the page */
+  width: 60%;
+  margin-left: 17vw; /* center the form on the page */
   margin-top: 30px; /* add space between h1 page title and the form */
 }
 
