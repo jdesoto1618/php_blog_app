@@ -13,7 +13,7 @@
       <div class="form-group">
         <!-- form control makes the input field block level and styles it -->
         <!-- the name='body' will correspond to the database field of the same name! -->
-        <textarea name="body" class="form-control" rows="4" cols="80" placeholder="Your Post"></textarea>
+        <textarea id="ckeditor" name="body" class="form-control" rows="4" cols="80" placeholder="Your Post"></textarea>
       </div>
 
       <button type="submit" class="btn btn-success btn-block" name="button">Submit</button>
