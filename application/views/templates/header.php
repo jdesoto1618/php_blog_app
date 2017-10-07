@@ -15,7 +15,8 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <!-- set home page when brand is clicked. will leave this as the standard href, to show it's fine to use this one as well as the PHP helper -->
-          <a class="navbar-brand" href="/php_blog">LIVE JOURNAL</a>
+          <!-- removed the href="/php_blog" from the brand, redundant with the home link next to it, pointing to the same page. leaving this as an anchor means it shouls still light up on hover -->
+          <a class="navbar-brand">LIVE JOURNAL</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,7 +32,8 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo base_url(); ?>sign_in">Sign In</a></li>
+            <!-- added posts/create to the base_url because this is how it's set up in the routes for creating a post -->
+            <li><a href="<?php echo base_url(); ?>posts/create"><span class="glyphicon glyphicon-plus-sign"></span> New Post</a></li>
           </ul>
         </div><!-- .navbar-collapse -->
       </div><!-- .container-fluid -->

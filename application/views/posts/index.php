@@ -1,4 +1,5 @@
-<h1 class="text-center"><?= $title ?>!</h1>
+<h1 class="text-center">Blog Posts Page!</h1>
+<h3 class="text-center">Newest posts are listed first.</h3>
 <hr class="horizontal">
 <!-- loop through each post -->
 <?php foreach ($posts as $post) : ?>

@@ -8,6 +8,11 @@ body {
   border-radius: 0;
 }
 
+/* set navbar brand mouse cursor to standard instead of "cursor" */
+.navbar-brand:hover {
+  cursor: default;
+}
+
 /* set style on post timestamp */
 .post_date {
   display: block;
@@ -19,9 +24,14 @@ body {
   border-radius: 10px;
 }
 
- /*set style for hr's */
+ /* set style for hr's */
 .horizontal {
   border-top: 1px solid #C63D0F;
+}
+
+/* set style for hr in create post page */
+.horizontal.form {
+  /*width: 35%*/ /* set this the same width as the create post form */
 }
 
 /* set view post button styling */
@@ -33,7 +43,20 @@ body {
 
 /* set back to posts button styling */
 .back_to_posts {
-  /* box shadow shows underneath the element. horizontal offset, vertical offset, blur, color */
+  /* box shadow shows underneath the element. horizontal offset, vertical offset, blur size/intensity, color */
+  box-shadow: 2px 2px 2px #c63d0f;
+  border: none;
+}
+
+/* set styles for delete post button on view post page */
+.delete_form {
+  margin-top: -32px;
+}
+
+/* set styles on edit post button on view post page */
+.edit_post {
+  margin-left: 10px;
+  /* box shadow shows underneath the element. horizontal offset, vertical offset, blur size/intensity, color */
   box-shadow: 2px 2px 2px #c63d0f;
   border: none;
 }
@@ -42,3 +65,60 @@ body {
 .btn.btn-primary:active {
     box-shadow: 2px 2px 2px #c63d0f;
  }
+
+/* set styles for create post form */
+.post_form,
+.edit_form {
+  /* set top padding to match bottom inherited padding */
+  padding: 45px 30px 30px 30px;
+}
+
+/* set styles for form_container div */
+.form_container {
+  background: #0fc6c6;
+  /* set blurred shadow all around create post form: horizontal-offset 0, vertical offset 0, blur size/intensity, color */
+  box-shadow: 0 0 10px #c63d0f;
+  border-radius: 3px;
+  width: 40%;
+  margin-left: 30%; /* center the form on the page */
+  margin-top: 30px; /* add space between h1 page title and the form */
+}
+
+/* set styles for add post glyphicon */
+.glyphicon {
+  color: #fff;
+  padding: 2px;
+}
+
+/* set button color for create post form */
+.btn-block {
+  background: #c63d0f;
+  border: none;
+  font-weight: bold;
+}
+
+/* set border color of focused input fields */
+.form-control:focus {
+  border: 1px solid #c63d0f;
+}
+
+/* set button color on focus for create post form */
+/* to override a bootstrap color for a button, conside all states of that button. the button itself, when it's not being interacted with in any way is just the button class. but then all other combinations such as active, focus, hover, and when clicked, it's active AND focus at the same time. the css must reflect that */
+.btn-success,
+.btn-success:active,
+.btn-success:focus,
+.btn-success:hover,
+.btn-success:active:focus {
+ background: #c63d0f;
+ box-shadow: 2px 2px 2px #c63d0f;
+}
+
+
+/* style error list items on create post form */
+ul.error_list {
+  list-style: none;
+  text-align: center;
+  margin-top: 20px;
+  /*margin-right: 6.7%;*/
+  font-size: 30px;
+}
