@@ -10,7 +10,11 @@
       // check if the slug exists. if not (slug value will become false), return all posts. nothing is passed in if the default slug is posts, so that could mean the user may want to see all posts, or a misclick could simply show all posts
       if($slug ===  false){
         // order the posts by newest first. this will result in the newest post being on top of all others
-        $this->db->order_by('id', 'DESC');
+        // since we ended up doing a join, the id listed here is now ambiguous. there are id's in both tables and the sql won't know which one to refer to. specify which id, in thsi case from the posts table, since this is from where we fetch all posts
+        $this->db->order_by('posts.id', 'DESC');
+        // join the posts and categories table, so information can be called from both
+        // the join syntax is the other table being joined to posts, in this case categories table. then the fields being joined. thye have to exist in both. join the PK from categories table as (=) the FK of category_id from the posts table
+        $this->db->join('categories', 'categories.id = posts.category_id');
         // show all posts from the database
         $query = $this->db->get('posts');
         return $query->result_array();
@@ -21,15 +25,25 @@
       return $query->row_array();
     }
 
+    public function get_categories(){
+      // get the category from the database
+      $this->db->order_by('name');
+      // from the categories table
+      $query = $this->db->get('categories');
+      return $query->result_array();
+    }
+
     public function create_post(){
       // get the post title, use this as the slug for the web address on a new blog post
       $slug = url_title($this->input->post('title'));
       // create the array to hold the post information for creating a post
+      // when adding more information to the create post form, the matching field values must be part of this data array, so whatever the user enters gets placed into the posts table. when the category_id was added as a FK to the posts table, it had to be added to this array so that when users pick a category for a post, it updates the posts table
       $data =
       [
-        'title'   => $this->input->post('title'),
-        'slug'    => $slug,
-        'body'    => $this->input->post('body')
+        'title'       => $this->input->post('title'),
+        'slug'        => $slug,
+        'body'        => $this->input->post('body'),
+        'category_id' => $this->input->post('category_id'),
       ];
       // insert data into database from data array. insert syntax: table_name, any_data
       return $this->db->insert('posts', $data);
@@ -41,9 +55,10 @@
       // create the array to hold the post information for updating(editing) a post
       $data =
       [
-        'title'   => $this->input->post('title'),
-        'slug'    => $slug,
-        'body'    => $this->input->post('body')
+        'title'       => $this->input->post('title'),
+        'slug'        => $slug,
+        'body'        => $this->input->post('body'),
+        'category_id' => $this->input->post('category_id'),
       ];
       // find the matching post id from the database
       $this->db->where('id', $this->input->post('id'));

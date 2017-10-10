@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- CSS stylesheet link. ended up using main.css?v=<?//=time();?> because the css file wouldnt always reload the local changes. SO reports many complicated solutions for this, but I ended up using this one. Comments also say this will NOT work in prod.... this solution may end up removing caching abilties in css. may need to just use ctrl shift r to hard refresh changes in cache. another simple solution is to disable cache in network tab under chrome dev tools -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
+    <!-- set font to open sans -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
