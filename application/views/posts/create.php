@@ -16,6 +16,19 @@
         <textarea id="ckeditor" name="body" class="form-control" rows="4" cols="80" placeholder="Your Post"></textarea>
       </div>
 
+      <div class="form-group">
+        <label>Post Category</label>
+        <!-- pull the category id from the posts table, where it's a FK, listed as category_id. the value in name attribute must match this -->
+        <select class="form-control" name="category_id">
+          <!-- loop through the categories, display them as options for the user to select -->
+          <?php foreach ($categories as $category): ?>
+            <!-- value of each option needs to output its corresponding category name -->
+            <option value="<?= $category['id']; ?>"><?= $category['name']; ?></option>
+            <!-- syntax to end this is endforeach, all one word -->
+          <?php endforeach; ?>
+        </select>
+      </div>
+
       <button type="submit" class="btn btn-success btn-block" name="button">Submit</button>
       <br>
     </form>

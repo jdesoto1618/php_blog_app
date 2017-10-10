@@ -1,6 +1,17 @@
-/*set background color for all pages*/
+/* set background color and font for all pages*/
 body {
   background-color: #FDF3E7;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* set bg image styling to cover entire home page */
+.bg_image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 /*set navbar edges to be square*/

@@ -13,8 +13,21 @@
     <div class="form-group">
       <!-- form control makes the input field block level and styles it -->
       <!-- the name='body' will correspond to the database field of the same name! -->
-      <!-- another gotcha with textarea. place the post['body'] code betweenthe textarea tags! NOT as a value, like an input -->
+      <!-- another gotcha with textarea. place the post['body'] code between the textarea tags! NOT as a value, like an input -->
       <textarea id="ckeditor" name="body" class="form-control" rows="4" cols="80"><?= $post["body"] ?></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Post Category</label>
+      <!-- pull the category id from the posts table, where it's a FK, listed as category_id. the value in name attribute must match this -->
+      <select class="form-control" name="category_id">
+        <!-- loop through the categories, display them as options for the user to select -->
+        <?php foreach ($categories as $category): ?>
+          <!-- value of each option needs to output its corresponding category name -->
+          <option value="<?= $category['id']; ?>"><?= $category['name']; ?></option>
+          <!-- syntax to end this is endforeach, all one word -->
+        <?php endforeach; ?>
+      </select>
     </div>
 
     <!-- set the hidden field to capture the post id -->
