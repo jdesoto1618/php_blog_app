@@ -34,6 +34,7 @@
     <input type="hidden" name="id" value="<?= $post['id']; ?>">
 
     <button type="submit" class="btn btn-success btn-block" name="button">Edit Post</button>
+    <a class="btn btn-primary back_to_posts" href="<?= site_url('/posts/'); ?>">Back to Posts</a>
     <br>
   </form>
 

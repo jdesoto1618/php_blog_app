@@ -129,7 +129,6 @@ h1.text-center {
  box-shadow: 2px 2px 2px #c63d0f;
 }
 
-
 /* style error list items on create post form */
 ul.error_list {
   list-style: none;
@@ -137,4 +136,9 @@ ul.error_list {
   margin-top: 20px;
   /*margin-right: 6.7%;*/
   font-size: 30px;
+}
+
+/* set image upload post size to match its container div size */
+.post_image {
+  width: 100%;
 }

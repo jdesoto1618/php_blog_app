@@ -45,7 +45,31 @@
         $this->load->view('templates/footer');
       } else {
         // if the form validation passes, go to the post model, render the posts views to see your post in with all others. should be on top of all others. also, need a success message, sweet alert, something to let the user know the post status
-        $this->post_model->create_post();
+        // image upload path. uploaded images will be placed in this directory in the project, once the user presses submit post!
+        $config['upload_path'] = './images/posts';
+        // file types allowed for image upload
+        $config['allowed_types'] = 'gif|jpg|png';
+        // max image size upload
+        $config['max_size'] = '2048';
+        // max image width. this is set to 1000, as the css will then resize the image
+        $config['max_width'] = '1000';
+        // max image height. this is set to 1000, as the css will then resize the image
+        $config['max_height'] = '1000';
+        // load image library with config parameters
+        $this->load->library('upload', $config);
+        // check if the image is not loaded
+        if(!$this->upload->do_upload()){
+          $errors = array('error' => $this->upload->display_errors());
+          // set default image when no image is uploaded by the user. make sure the image has this file name!
+          $post_image = 'noimage.jpg';
+        // if an image is uploaded by the user without errors
+        } else {
+          $data = array('upload_data' => $this->upload->data());
+          // note image is the name of the field in the view
+          $post_image = $_FILES['userfile']['name'];
+        }
+        // call the create_post method from the model. Since this takes $post_image as a parameter, the method in the model must also as well
+        $this->post_model->create_post($post_image);
         // this redirect route matches the one in the route file for sending the user to posts/index. successful post creation message?
         redirect('posts');
       }
