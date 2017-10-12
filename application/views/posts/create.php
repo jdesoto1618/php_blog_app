@@ -1,7 +1,7 @@
   <!-- place page title here, from posts controller, create method -->
   <h1 class="text-center"><?= $title; ?></h1>
   <div class="form_container">
-    <?= form_open('posts/create', array('class' => 'post_form')); ?>
+    <?= form_open_multipart('posts/create', array('class' => 'post_form')); ?>
       <!-- post title, post fields -->
       <div class="form-group">
         <!-- form control makes the input field block level and styles it -->
@@ -27,6 +27,12 @@
             <!-- syntax to end this is endforeach, all one word -->
           <?php endforeach; ?>
         </select>
+      </div>
+
+      <div class="form-group">
+        <!-- image upload -->
+        <label for="image">Upload Image. Images greater than 1000 x 1000 are ignored!</label>
+        <input type="file" name="userfile">
       </div>
 
       <button type="submit" class="btn btn-success btn-block" name="button">Submit</button>

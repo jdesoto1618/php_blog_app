@@ -33,17 +33,19 @@
       return $query->result_array();
     }
 
-    public function create_post(){
+    public function create_post($post_image){
       // get the post title, use this as the slug for the web address on a new blog post
       $slug = url_title($this->input->post('title'));
       // create the array to hold the post information for creating a post
       // when adding more information to the create post form, the matching field values must be part of this data array, so whatever the user enters gets placed into the posts table. when the category_id was added as a FK to the posts table, it had to be added to this array so that when users pick a category for a post, it updates the posts table
+      // left trailing comma in the data array
       $data =
       [
         'title'       => $this->input->post('title'),
         'slug'        => $slug,
         'body'        => $this->input->post('body'),
         'category_id' => $this->input->post('category_id'),
+        'post_image'  => $post_image,
       ];
       // insert data into database from data array. insert syntax: table_name, any_data
       return $this->db->insert('posts', $data);
