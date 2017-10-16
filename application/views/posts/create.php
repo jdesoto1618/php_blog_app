@@ -1,8 +1,8 @@
   <!-- place page title here, from posts controller, create method -->
   <h1 class="text-center"><?= $title; ?></h1>
-  <div class="form_container">
+  <div class="form-container">
     <?= form_open_multipart('posts/create', array('class' => 'post_form')); ?>
-      <!-- post title, post fields -->
+      <!-- post title, category, image fields -->
       <div class="form-group">
         <!-- form control makes the input field block level and styles it -->
         <!-- set the value in this field to hold whatever is in it on submit. if isset returns false, set this form field to empty -->
@@ -36,7 +36,8 @@
       </div>
 
       <button type="submit" class="btn btn-success btn-block" name="button">Submit</button>
-      <br>
+      <!-- back to posts button -->
+      <a class="btn btn-primary back_to_posts" href="<?= site_url('/posts/'); ?>">Back to Posts</a>
     </form>
 
   </div> <!-- closes form_container div -->

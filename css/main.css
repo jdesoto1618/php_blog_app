@@ -62,6 +62,26 @@ h1.text-center {
   /* box shadow shows underneath the element. horizontal offset, vertical offset, blur size/intensity, color */
   box-shadow: 2px 2px 2px #c63d0f;
   border: none;
+  /* add half as much top margin as the containing div */
+  margin-top: 7.5px;
+  /* have button take up all div width */
+  display: block;
+}
+
+/* set styling for back_button. used this one for viewing a specific post, where this button needs to be inline with the other buttons on this page */
+.back_button {
+  /* box shadow shows underneath the element. horizontal offset, vertical offset, blur size/intensity, color */
+  box-shadow: 2px 2px 2px #c63d0f;
+  border: none;
+}
+
+/* set styles for the back button on categories index */
+.back_to_categorized_posts {
+  /* box shadow shows underneath the element. horizontal offset, vertical offset, blur size/intensity, color */
+  box-shadow: 2px 2px 2px #c63d0f;
+  border: none;
+  /* size this button to be the same as the li's */
+  width: 50%;
 }
 
 /* set styles for delete post button on view post page */
@@ -85,12 +105,23 @@ h1.text-center {
 /* set styles for create post form */
 .post_form,
 .edit_form {
-  /* set top padding to match bottom inherited padding */
-  padding: 45px 30px 30px 30px;
+  /* set padding */
+  padding: 30px 30px 30px 30px;
 }
 
 /* set styles for form_container div */
-.form_container {
+.form-container {
+  background: #0fc6c6;
+  /* set blurred shadow all around create post form: horizontal-offset 0, vertical offset 0, blur size/intensity, color */
+  box-shadow: 0 0 10px #c63d0f;
+  border-radius: 3px;
+  width: 60%;
+  margin-left: 17vw; /* center the form on the page */
+  margin-top: 30px; /* add space between h1 page title and the form */
+}
+
+/* set styles for category form div */
+.category_form {
   background: #0fc6c6;
   /* set blurred shadow all around create post form: horizontal-offset 0, vertical offset 0, blur size/intensity, color */
   box-shadow: 0 0 10px #c63d0f;
@@ -141,4 +172,32 @@ ul.error_list {
 /* set image upload post size to match its container div size */
 .post_image {
   width: 100%;
+}
+
+/* set styles for list group ul */
+.list-group {
+  width: 50%;
+  text-align: center;
+  /* ghetto way to align the entire list to the center of the screen. this also aligns with the back to posts by category button */
+  margin-left: 20.9vw;
+}
+
+/* adjust styles for category list items */
+.list-group-item {
+  /* creates space between each list item */
+  margin-bottom: 5px;
+  /* remove padding for all list items. this is done as one step in making the entire li clickable. the next steps are to give the padding to the anchor tags themselves, thereby making them the same size as before */
+  padding: 0;
+}
+
+/* set background color for list group items on hover */
+.list-group-item:hover {
+  background: #7ccf84;
+}
+
+/* style anchor tags instead of list-group-item so that most of each li is clickable */
+/* main issue here is the padding interferes with the alignment of the words. as soon as it's good for one li, it's too much for another one and pushes the words to the right */
+li.list-group-item>a {
+  display: block;
+  padding: 10px 15px;
 }

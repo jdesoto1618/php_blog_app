@@ -1,6 +1,6 @@
 <!-- place page title here, from posts controller, create method -->
 <h1 class="text-center"><?= $title; ?></h1>
-<div class="form_container">
+<div class="form-container">
   <?= form_open('posts/update', array('class' => 'edit_form')); ?>
     <!-- post title, post fields -->
     <div class="form-group">
@@ -35,7 +35,6 @@
 
     <button type="submit" class="btn btn-success btn-block" name="button">Edit Post</button>
     <a class="btn btn-primary back_to_posts" href="<?= site_url('/posts/'); ?>">Back to Posts</a>
-    <br>
   </form>
 
 </div> <!-- closes form_container div -->
