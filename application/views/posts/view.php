@@ -15,7 +15,8 @@
     </div>
   </div>
   <hr class="horizontal">
-  <a class="btn btn-primary back_to_posts" href="<?= site_url('/posts/'); ?>">Back to Posts</a>
+  <!-- back button, goes to posts index page -->
+  <a class="btn btn-primary back_button" href="<?= site_url('/posts/'); ?>">Back to Posts</a>
   <a class="btn btn-warning edit_post" href="<?= site_url('/posts/edit/'.$post['slug']); ?>">Edit Post</a>
   <!-- place this button opposite the back to posts button so there's less chance of accidental deletion -->
   <!-- use a form_open to place the delete button. also, this will delete the post by its id -->

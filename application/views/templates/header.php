@@ -31,7 +31,13 @@
             <!-- solution to this was to set the config for the base url to point to port 8080. this is located in /application/config/config.php -->
             <!-- $config['base_url'] = 'http://localhost:8080/php_blog/'; -->
             <li><a href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a></li>
-            <li><a href="<?php echo base_url(); ?>posts">Posts</a></li>
+            <li><a href="<?php echo base_url(); ?>posts">All Posts</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Post Categories
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="<?php echo base_url(); ?>categories">Show Categories</a></li>
+              <li><a href="<?php echo base_url(); ?>categories/create">Create a Category</a></li>
+            </ul>
             <li><a href="<?php echo base_url(); ?>about">About</a></li>
           </ul>
 

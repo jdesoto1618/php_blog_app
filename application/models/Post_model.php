@@ -25,10 +25,19 @@
       return $query->row_array();
     }
 
+    public function get_posts_by_category($category_id){
+      // get posts by category id. requires table join of categories
+      $this->db->order_by('posts.id','DESC');
+      $this->db->join('categories', 'categories.id = posts.category_id');
+      // show posts from a specific category
+      $query = $this->db->get_where('posts', array('category_id' => $category_id));
+      return $query->result_array();
+    }
+
     public function get_categories(){
       // get the category from the database
       $this->db->order_by('name');
-      // from the categories table
+      // fetch from the categories table
       $query = $this->db->get('categories');
       return $query->result_array();
     }
