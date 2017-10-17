@@ -45,6 +45,12 @@ h1.text-center {
   border-top: 1px solid #C63D0F;
 }
 
+/* set style for comment section hr */
+.comments_hr {
+  border-top: 1px solid #C63D0F;
+  margin-top: 60px;
+}
+
 /* set style for hr in create post page */
 .horizontal.form {
   /*width: 35%*/ /* set this the same width as the create post form */
@@ -73,6 +79,7 @@ h1.text-center {
   /* box shadow shows underneath the element. horizontal offset, vertical offset, blur size/intensity, color */
   box-shadow: 2px 2px 2px #c63d0f;
   border: none;
+  margin-top: 20px;
 }
 
 /* set styles for the back button on categories index */
@@ -82,6 +89,39 @@ h1.text-center {
   border: none;
   /* size this button to be the same as the li's */
   width: 50%;
+}
+
+/* styles for add comment button */
+.comment_button {
+  /* box shadow shows underneath the element. horizontal offset, vertical offset, blur size/intensity, color */
+  box-shadow: 2px 2px 2px #c63d0f;
+  border: none;
+  width: 50%; /* set width of button to be the same as comment fields*/
+  font-weight: bold;
+}
+
+/* style comment wells padding */
+.well {
+  padding: 13px 19px 3px 19px;
+  border: 1px solid #7ccf84;
+}
+
+/* styles for add comment form */
+.add_comment_form {
+  margin-bottom: 20px;
+  padding: 20px;
+  text-align: center; /* center input button. will use this as a reference to center the input fields for comments */
+}
+
+/* set styles for comment fields */
+.comment_field {
+  width: 50%;
+  margin-left: 20.2vw; /* center the form on the page */
+}
+
+/* comment body */
+.comment_body {
+  margin-bottom: 20px;
 }
 
 /* set styles for delete post button on view post page */
@@ -95,6 +135,7 @@ h1.text-center {
   /* box shadow shows underneath the element. horizontal offset, vertical offset, blur size/intensity, color */
   box-shadow: 2px 2px 2px #c63d0f;
   border: none;
+  margin-top: 20px;
 }
 
 /* set box-shadow behavior when a button is clicked. Buttons are active when they are clicked, and hover was taken care of with previous css that set the box-shadow. when the button is clicked, it generates its own shadow, overriding the one I set up. this css forces the same shadow when the button is clicked */
@@ -200,4 +241,9 @@ ul.error_list {
 li.list-group-item>a {
   display: block;
   padding: 10px 15px;
+}
+
+/* style validation error margins */
+.error_list {
+  margin-bottom: 5px;
 }
