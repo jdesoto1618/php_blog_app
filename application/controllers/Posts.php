@@ -15,12 +15,14 @@
     public function view($slug = null){
       // get the post from the database according to the slug
       $data['post'] = $this->post_model->get_posts($slug);
-
+      // get the post id and save it
+      $post_id = $data['post']['id'];
+      // store the comment in the data array from the comments model
+      $data['comments'] = $this->comment_model->get_comments($post_id);
       // page not found error for viewing nonexistent post
       if(empty($data['post'])){
         show_404();
       }
-
       // title for each post, show this on posts/view once the button is clicked
       $data['title'] = $data['post']['title'];
       // load header, footer, and view page on posts/view

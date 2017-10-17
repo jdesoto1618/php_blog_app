@@ -44,5 +44,5 @@
   <!-- show errors for form validation, below the form -->
   <!-- use bootstrap with php to style the errors. validation_errors accepts parameters -->
   <ul class="error_list">
-    <?= validation_errors('<li><span class="label label-danger">', '</span></li>'); ?>
+    <?= validation_errors('<li class="error_list"><span class="label label-danger">', '</span></li>'); ?>
   </ul>
