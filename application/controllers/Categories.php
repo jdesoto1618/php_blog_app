@@ -27,6 +27,8 @@
       } else {
         // if validation passes, go to model and load the method
         $this->category_model->create_category();
+        // set message on successful post creation
+        $this->session->set_flashdata('category_created', 'New Post Category Created!');
         // send user to create view on successful category create_function
         redirect('categories');
       } // end form validator if

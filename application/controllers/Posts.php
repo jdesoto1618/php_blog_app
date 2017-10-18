@@ -53,10 +53,10 @@
         $config['allowed_types'] = 'gif|jpg|png';
         // max image size upload
         $config['max_size'] = '2048';
-        // max image width. this is set to 1000, as the css will then resize the image
-        $config['max_width'] = '1000';
-        // max image height. this is set to 1000, as the css will then resize the image
-        $config['max_height'] = '1000';
+        // max image width. this is set to 2000; the css will then resize the image
+        $config['max_width'] = '2000';
+        // max image height. this is set to 2000; the css will then resize the image
+        $config['max_height'] = '2000';
         // load image library with config parameters
         $this->load->library('upload', $config);
         // check if the image is not loaded
@@ -72,7 +72,9 @@
         }
         // call the create_post method from the model. Since this takes $post_image as a parameter, the method in the model must also as well
         $this->post_model->create_post($post_image);
-        // this redirect route matches the one in the route file for sending the user to posts/index. successful post creation message?
+        // set message on successful post creation
+        $this->session->set_flashdata('post_created', 'Post Created!');
+        // this redirect route matches the one in the route file for sending the user to posts/index. successful post creation message is handled with set_flashdata();
         redirect('posts');
       }
     }
@@ -98,14 +100,18 @@
     public function update(){
       // get the update method from the database for this post
       $this->post_model->update_post();
-      // redirect to all posts after updating. some sort of alert here?
+      // set message on successful post update
+      $this->session->set_flashdata('post_updated', 'Post Updated!');
+      // redirect to all posts after updating. will alert the user to succesful post edit
       redirect('posts');
     }
 
     public function delete($id){
       // get the delete method from the model for this post
       $this->post_model->delete_post($id);
-      // redirect to all posts after deletion. some sort of alert here?
+      // set message on successful post delete
+      $this->session->set_flashdata('post_deleted', 'Post Deleted Successfully.');
+      // redirect to all posts after deletion. will alert the user on successful deletion
       redirect('posts');
     }
   }
