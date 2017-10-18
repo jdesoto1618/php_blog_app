@@ -19,8 +19,9 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <!-- set home page when brand is clicked. will leave this as the standard href, to show it's fine to use this one as well as the PHP helper -->
-          <!-- removed the href="/php_blog" from the brand, redundant with the home link next to it, pointing to the same page. leaving this as an anchor means it shouls still light up on hover -->
-          <a class="navbar-brand">LIVE JOURNAL</a>
+          <!-- removed the href="/php_blog" from the brand, redundant with the home link next to it, pointing to the same page. leaving this as an anchor means it will still light up on hover -->
+          <!-- ended up placing the about page as the link for live journal, to make room for a users section in navbar -->
+          <a class="navbar-brand" href="<?php echo base_url(); ?>about">LIVE JOURNAL</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,16 +33,23 @@
             <!-- $config['base_url'] = 'http://localhost:8080/php_blog/'; -->
             <li><a href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a></li>
             <li><a href="<?php echo base_url(); ?>posts">All Posts</a></li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Post Categories
+            <!-- add dropdown menu for post categories and creating a category. note: do NOT close off the li for the dropdown! counter-intuitively, this will cause it to not work -->
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Post Categories
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="<?php echo base_url(); ?>categories">Show Categories</a></li>
               <li><a href="<?php echo base_url(); ?>categories/create">Create a Category</a></li>
             </ul>
-            <li><a href="<?php echo base_url(); ?>about">About</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
+            <!-- add dropdown menu for logging in and signing up. note: do NOT close off the li for the dropdown! counter-intuitively, this will cause it to not work -->
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">My Account
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="<?php echo base_url(); ?>login">Log In</a></li>
+              <li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
+            </ul>
             <!-- added posts/create to the base_url because this is how it's set up in the routes for creating a post -->
             <li><a href="<?php echo base_url(); ?>posts/create"><span class="glyphicon glyphicon-plus-sign"></span> New Post</a></li>
           </ul>
@@ -50,3 +58,23 @@
     </nav>
 
     <div class="container">
+      <!-- show flash messages. user_registered is a parameter that has to match up to one specified in the controller. checks whether a user is registered -->
+      <?php if($this->session->flashdata('user_registered')) : ?>
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'<p>'; ?>
+      <?php endif; ?>
+
+      <?php if($this->session->flashdata('post_created')) : ?>
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('post_created').'<p>'; ?>
+      <?php endif; ?>
+
+      <?php if($this->session->flashdata('post_updated')) : ?>
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('post_updated').'<p>'; ?>
+      <?php endif; ?>
+
+      <?php if($this->session->flashdata('post_deleted')) : ?>
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'<p>'; ?>
+      <?php endif; ?>
+
+      <?php if($this->session->flashdata('category_created')) : ?>
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('category_created').'<p>'; ?>
+      <?php endif; ?>
