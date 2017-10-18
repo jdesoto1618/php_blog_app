@@ -37,4 +37,21 @@
         return false;
       }
     } // end check_username_exists
+
+    // user login
+    public function login($username, $password){
+      // validate userame and password. separate by comma when not in an array
+      $this->db->where('username', $username);
+      $this->db->where('password', $password);
+      // return results from database. get needs table name
+      $result = $this->db->get('users');
+      // check the results to see if login information is correct. look for just one matching result
+      if($result->num_rows() == 1){
+        // return the actual id when login info is good
+        return $result->row(0)->id;
+      } else {
+        // login information doesnt match the database
+        return false;
+      }
+    } // end login
   } // end class

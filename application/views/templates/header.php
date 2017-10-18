@@ -34,12 +34,15 @@
             <li><a href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a></li>
             <li><a href="<?php echo base_url(); ?>posts">All Posts</a></li>
             <!-- add dropdown menu for post categories and creating a category. note: do NOT close off the li for the dropdown! counter-intuitively, this will cause it to not work -->
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Post Categories
-            <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="<?php echo base_url(); ?>categories">Show Categories</a></li>
-              <li><a href="<?php echo base_url(); ?>categories/create">Create a Category</a></li>
-            </ul>
+            <!-- if the user is logged in, show the post categories and create category options -->
+            <?php if($this->session->userdata('logged_in')): ?>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Post Categories
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="<?php echo base_url(); ?>categories">Show Categories</a></li>
+                <li><a href="<?php echo base_url(); ?>categories/create">Create a Category</a></li>
+              </ul>
+            <?php endif; ?>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -47,11 +50,20 @@
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">My Account
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="<?php echo base_url(); ?>login">Log In</a></li>
-              <li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
+              <!-- if the user is not logged in, show the log in and register buttons -->
+              <?php if(!$this->session->userdata('logged_in')): ?>
+                <li><a href="<?php echo base_url(); ?>users/login">Log In</a></li>
+                <li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
+              <!-- if the user is logged in, show just the log out button. they dont need to log in again -->
+              <?php else: ?>
+                <li><a href="<?php echo base_url(); ?>users/logout">Log Out</a></li>
+              <?php endif; ?>
             </ul>
             <!-- added posts/create to the base_url because this is how it's set up in the routes for creating a post -->
-            <li><a href="<?php echo base_url(); ?>posts/create"><span class="glyphicon glyphicon-plus-sign"></span> New Post</a></li>
+            <!-- if a user is logged in, they can see the option to create a post -->
+            <?php if($this->session->userdata('logged_in')): ?>
+              <li><a href="<?php echo base_url(); ?>posts/create"><span class="glyphicon glyphicon-plus-sign"></span> New Post</a></li>
+            <?php endif; ?>
           </ul>
         </div><!-- .navbar-collapse -->
       </div><!-- .container-fluid -->
@@ -77,4 +89,16 @@
 
       <?php if($this->session->flashdata('category_created')) : ?>
         <?= '<p class="alert alert-success">'.$this->session->flashdata('category_created').'<p>'; ?>
+      <?php endif; ?>
+
+      <?php if($this->session->flashdata('user_loggedin')) : ?>
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'<p>'; ?>
+      <?php endif; ?>
+
+      <?php if($this->session->flashdata('user_logout')) : ?>
+        <?= '<p class="alert alert-success logout">'.$this->session->flashdata('user_logout').'<p>'; ?>
+      <?php endif; ?>
+
+      <?php if($this->session->flashdata('login_fail')) : ?>
+        <?= '<p class="alert alert-danger login_fail">'.$this->session->flashdata('login_fail').'<p>'; ?>
       <?php endif; ?>

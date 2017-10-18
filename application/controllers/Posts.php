@@ -32,6 +32,10 @@
     }
 
     public function create(){
+      // check user's login status. requires login before being able to create a post
+      if(!$this->session->userdata('logged_in')){
+        redirect('users/login');
+      }
       // title for a creating posts page. show this on posts/create. $data is accessing the title field from the database. can access any field's values in this way
       $data['title'] = 'Create Post';
       //  get the category values from the database. this must also be called in the model
@@ -80,8 +84,16 @@
     }
 
     public function edit($slug){
+      // check user's login status. requires login before being able to edit a post
+      if(!$this->session->userdata('logged_in')){
+        redirect('users/login');
+      }
       // get the post from the database according to the slug
       $data['post'] = $this->post_model->get_posts($slug);
+      // check for incorrect user. since this is the posts, the field name in posts is fk_user_id
+      if($this->session->userdata('user_id') != $this->post_model->get_posts($slug)['fk_user_id']){
+        redirect('posts');
+      }
       //  get the category values from the database. this must also be called in the model
       $data['categories'] = $this->post_model->get_categories();
       // page not found error for viewing nonexistent post
@@ -98,6 +110,10 @@
     }
 
     public function update(){
+      // check user's login status. requires login before being able to update a post
+      if(!$this->session->userdata('logged_in')){
+        redirect('users/login');
+      }
       // get the update method from the database for this post
       $this->post_model->update_post();
       // set message on successful post update
@@ -107,6 +123,10 @@
     }
 
     public function delete($id){
+      // check user's login status. requires login before being able to delete a post
+      if(!$this->session->userdata('logged_in')){
+        redirect('users/login');
+      }
       // get the delete method from the model for this post
       $this->post_model->delete_post($id);
       // set message on successful post delete
