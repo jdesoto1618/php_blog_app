@@ -22,11 +22,35 @@ body {
 .navbar-inverse .navbar-nav>li>a:hover {
   cursor: pointer;
 }
+
 /* set styles on flash alerts. these will override the default success bootstrap styling  */
-.alert-success {
+.alert-success,
+.alert-danger {
   position: absolute;
   padding: 0; /* remove padding so message lines up with other content on the left */
   margin-top: 100px;
+  font-size: 20px; /* increase font size for p tag */
+  background: #FDF3E7; /* same background color as page */
+  border: none;
+}
+
+/* set styles on login fail */
+.login_fail {
+  position: absolute;
+  padding: 0; /* remove padding so message lines up with other content on the left */
+  margin-top: 60vh;
+  margin-left: 32vw;
+  font-size: 20px; /* increase font size for p tag */
+  background: #FDF3E7; /* same background color as page */
+  border: none;
+}
+
+/* set styles for logout message */
+.logout {
+  position: absolute;
+  padding: 0; /* remove padding so message lines up with other content on the left */
+  margin-top: 60vh;
+  margin-left: 34vw;
   font-size: 20px; /* increase font size for p tag */
   background: #FDF3E7; /* same background color as page */
   border: none;
@@ -190,6 +214,12 @@ h1.text-center {
   width: 60%;
   margin-left: 17vw; /* center the form on the page */
   margin-top: 30px; /* add space between h1 page title and the form */
+}
+
+/* set styles for login form */
+.login {
+  padding: 30px;
+  margin-left: 19vw; /* center the login form on the page */
 }
 
 /* set styles for add post glyphicon */

@@ -52,6 +52,7 @@
       [
         'title'       => $this->input->post('title'),
         'slug'        => $slug,
+        'fk_user_id'  => $this->session->userdata('user_id'), // field in database is fk_user_id
         'body'        => $this->input->post('body'),
         'category_id' => $this->input->post('category_id'),
         'post_image'  => $post_image,

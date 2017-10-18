@@ -13,6 +13,9 @@
     }
 
     public function create(){
+      // check user's login status. requires login before being able to create a category
+        redirect('users/login');
+      }
       // page title for creating a post category
       $data['title'] = 'Create Post Category';
       // validate category name on form submit. set up form validations. in set_rules, first parameter is the field name in the form. second parameter is what will output in the event of an error. third is the rule, such as required

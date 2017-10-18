@@ -47,4 +47,64 @@
         return false;
       } // end if
     } // end check_username_exists
+
+    // user login
+    public function login(){
+      // set page title
+      $data['title'] = 'Login';
+      // validation rules for user sign up form. set_rules() syntax is field name in the view, display name for error messages, and rule to set, such as required. to chain multiple rules, do not use whitespace between pipes
+      $this->form_validation->set_rules('username', 'Username', 'required');
+      $this->form_validation->set_rules('password', 'Password', 'required');
+      // if form validation fails (returns false)
+      if($this->form_validation->run() === false){
+        // load view templates and also the same registration page with the errors if form validation fails
+        $this->load->view('templates/header');
+        $this->load->view('users/login', $data);
+        $this->load->view('templates/footer');
+
+      } else {
+        // if form validation passes, redirect to all posts, with a flash message displayed
+        // get username, store it in $username. to get an input from a form, use $this->input->post('form_field_name');
+        $username = $this->input->post('username');
+        // get and encrypt user's password
+        $password = md5($this->input->post('password'));
+        // user's unique id after login. run this on the model. if login information is incorrect, this will return false
+        $user_id = $this->user_model->login($username, $password);
+        // check user id
+        if($user_id){
+          // create user session after successful login. save the user data
+          $user_data =
+          [
+            'user_id'   => $user_id,
+            'username'  => $username,
+            'logged_in' => true,
+          ];
+          // store session data using sessions library
+          $this->session->set_userdata($user_data);
+          // if user id and password match those in the database
+          // set flash message on successful registration. this requires the session library to be autoloaded
+          // since session is a library, it uses the syntax $this->library_name->library_function_name();
+          // first parameter in set_flashdata is user_registered. this can be anything, and identifies this particular flash message. use this to call the message in views. second parameter is the message to be displayed
+          $this->session->set_flashdata('user_loggedin', 'Login Successful! Welcome '.$user_data['username']);
+          // send user back to posts page after succesful login. no new route needed because this route is already set up
+          redirect('posts');
+        } else {
+          // set error message for wrong user id and or password combination
+          $this->session->set_flashdata('login_fail', 'Incorrect Username or Password');
+          // redirect to login page if there was an error
+          redirect('users/login');
+        } // end nested if
+      } // end if
+    } // end login function
+
+    public function logout(){
+      // unset $user_data from login function
+      $this->session->unset_userdata('user_id');
+      $this->session->unset_userdata('username');
+      $this->session->unset_userdata('logged_in');
+      // show logout message
+      $this->session->set_flashdata('user_logout', 'Logged Out. Well.... Bye.');
+      // send user back to login page after a logout
+      redirect('users/login');
+    } // ends logout function
   } // ends class

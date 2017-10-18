@@ -16,12 +16,15 @@
   </div>
   <!-- back button, goes to posts index page -->
   <a class="btn btn-primary back_button" href="<?= site_url('/posts/'); ?>">Back to Posts</a>
-  <a class="btn btn-warning edit_post" href="<?= site_url('/posts/edit/'.$post['slug']); ?>">Edit Post</a>
-  <!-- place this button opposite the back to posts button so there's less chance of accidental deletion -->
-  <!-- use a form_open to place the delete button. also, this will delete the post by its id -->
-  <?= form_open('/posts/delete/'.$post['id'], array('class' => 'delete_form')); ?>
-    <input class="btn btn-danger delete_post pull-right" type="submit" value="Delete This Post">
-  </form>
+  <!-- only show edit and delete buttons on posts you created. $post[''] must include a matching field name from the model, database -->
+  <?php if($this->session->userdata('user_id') == $post['fk_user_id']): ?>
+    <a class="btn btn-warning edit_post" href="<?= site_url('/posts/edit/'.$post['slug']); ?>">Edit Post</a>
+    <!-- place this button opposite the back to posts button so there's less chance of accidental deletion -->
+    <!-- use a form_open to place the delete button. also, this will delete the post by its id -->
+    <?= form_open('/posts/delete/'.$post['id'], array('class' => 'delete_form')); ?>
+      <input class="btn btn-danger delete_post pull-right" type="submit" value="Delete This Post">
+    </form>
+  <?php endif; ?>
 </div>
 <hr class="comments_hr">
 <h3 class="text-center comments_section">Comments</h3>
