@@ -17,7 +17,7 @@
       <p><?= word_limiter($post['body'], 50)?></p>
       <br>
       <!-- link to view a specific post. use site_url so the address becomes /php_blog/posts/slugname -->
-      <p><a class="btn btn-primary view_post" href="<?= site_url('/posts/'.$post['slug']); ?>">View Post</a></p>
+      <a class="btn btn-primary view_post" href="<?= site_url('/posts/'.$post['slug']); ?>">View Post</a>
     </div> <!-- end col-xs-9 div -->
   </div> <!-- end row div -->
 <?php endforeach; ?>

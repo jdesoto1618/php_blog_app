@@ -71,34 +71,35 @@
 
     <div class="container">
       <!-- show flash messages. user_registered is a parameter that has to match up to one specified in the controller. checks whether a user is registered -->
+      <!-- this is terrible code -->
       <?php if($this->session->flashdata('user_registered')) : ?>
-        <?= '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'<p>'; ?>
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?>
       <?php endif; ?>
 
       <?php if($this->session->flashdata('post_created')) : ?>
-        <?= '<p class="alert alert-success">'.$this->session->flashdata('post_created').'<p>'; ?>
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('post_created').'</p>'; ?>
       <?php endif; ?>
 
       <?php if($this->session->flashdata('post_updated')) : ?>
-        <?= '<p class="alert alert-success">'.$this->session->flashdata('post_updated').'<p>'; ?>
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('post_updated').'</p>'; ?>
       <?php endif; ?>
 
       <?php if($this->session->flashdata('post_deleted')) : ?>
-        <?= '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'<p>'; ?>
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'</p>'; ?>
       <?php endif; ?>
 
       <?php if($this->session->flashdata('category_created')) : ?>
-        <?= '<p class="alert alert-success">'.$this->session->flashdata('category_created').'<p>'; ?>
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('category_created').'</p>'; ?>
       <?php endif; ?>
 
       <?php if($this->session->flashdata('user_loggedin')) : ?>
-        <?= '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'<p>'; ?>
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>'; ?>
       <?php endif; ?>
 
       <?php if($this->session->flashdata('user_logout')) : ?>
-        <?= '<p class="alert alert-success logout">'.$this->session->flashdata('user_logout').'<p>'; ?>
+        <?= '<p class="alert alert-success logout">'.$this->session->flashdata('user_logout').'</p>'; ?>
       <?php endif; ?>
 
       <?php if($this->session->flashdata('login_fail')) : ?>
-        <?= '<p class="alert alert-danger login_fail">'.$this->session->flashdata('login_fail').'<p>'; ?>
+        <?= '<p class="alert alert-danger login_fail">'.$this->session->flashdata('login_fail').'</p>'; ?>
       <?php endif; ?>

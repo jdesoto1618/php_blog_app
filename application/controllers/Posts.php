@@ -90,7 +90,7 @@
       }
       // get the post from the database according to the slug
       $data['post'] = $this->post_model->get_posts($slug);
-      // check for incorrect user. since this is the posts, the field name in posts is fk_user_id
+      // check for incorrect user. since this is the posts, the field name in posts is fk_user_id. if a user other than the one who posted tries to edit a post, this will redirect them to the posts index
       if($this->session->userdata('user_id') != $this->post_model->get_posts($slug)['fk_user_id']){
         redirect('posts');
       }
