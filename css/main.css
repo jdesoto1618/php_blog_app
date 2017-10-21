@@ -93,8 +93,6 @@ h1.text-center {
   /* box shadow shows underneath the element. horizontal offset, vertical offset, blur, color */
   box-shadow: 2px 2px 2px #c63d0f;
   border: none;
-  /* move button to the bottom of a post section */
-  margin-top: 60px;
 }
 
 /* set back to posts button styling */
