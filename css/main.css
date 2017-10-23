@@ -314,7 +314,7 @@ a.pagination_links {
   font-weight: bold;
 }
 
-/* set styles for current page link */
+/* set styles for current page link. pagination adds a strong tag to the current page, so this will target that page and style it as well. it will have the same styling as the other page linkss */
 .pagination strong {
   padding: 8px 13px;
   margin: 5px;
