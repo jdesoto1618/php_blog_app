@@ -297,3 +297,29 @@ li.list-group-item>a {
 .error_list {
   margin-bottom: 5px;
 }
+
+/* set margin for pagination div. this contains the pagination links */
+.pagination {
+  /* top/bottom margin only */
+  margin: 20px 0;
+}
+
+/* set styles for the pagination links */
+a.pagination_links {
+  padding: 8px 13px;
+  margin: 5px;
+  background: #f4f4f4;
+  border: 1px solid #337ab7;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* set styles for current page link */
+.pagination strong {
+  padding: 8px 13px;
+  margin: 5px;
+  background: #f4f4f4;
+  border: 1px solid #337ab7;
+  border-radius: 4px;
+  font-weight: bold;
+}

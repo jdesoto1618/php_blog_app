@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// set a route for the index pages of post. this has to be above the posts/(:any) route, since we are using pagination
+$route['posts/index']                                 = 'posts/index';
 // set route for creating new post. if user types in posts/create(left side), route points to posts/create(right side)
 // when the route is $route['posts/create'] = 'posts/create', the user would have to type controller_name(posts)/method_name(create)/posts_folder(posts)/view_file_name(create)... we want it to just be /create. to do this, set the left side of the route to $route['create'] = 'posts/create'. this makes sense because we are routing a typed address of /php_blog/create to 'posts/create'... but this didn't work when actually submitting the form! form validations wouldn't work, and i ended up moving this here and changing it to $route['posts/create'] = 'posts/create' D:
 $route['posts/create']                                = 'posts/create';

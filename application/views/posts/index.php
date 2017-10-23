@@ -21,3 +21,9 @@
     </div> <!-- end col-xs-9 div -->
   </div> <!-- end row div -->
 <?php endforeach; ?>
+<hr class="horizontal">
+<!-- pagination div for styling -->
+<div class="pagination">
+  <!-- get pagination from controller. this will create the links to separate pages for more posts per the rules in the controller -->
+  <?= $this->pagination->create_links(); ?>
+</div>
