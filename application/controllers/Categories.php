@@ -13,7 +13,8 @@
     }
 
     public function create(){
-      // check user's login status. requires login before being able to create a category
+      // check user's login status. requires login before being able to delete a category
+      if(!$this->session->userdata('logged_in')){
         redirect('users/login');
       }
       // page title for creating a post category
@@ -36,6 +37,19 @@
         redirect('categories');
       } // end form validator if
     } // end create function
+
+    public function delete($id){
+      // check user's login status. requires login before being able to delete a category
+      if(!$this->session->userdata('logged_in')){
+        redirect('users/login');
+      }
+      // get the delete method from the model for this category
+      $this->category_model->delete_post($id);
+      // set message on successful category delete
+      $this->session->set_flashdata('category_deleted', 'Category Deleted Successfully.');
+      // redirect to all categories after deletion. will alert the user on successful deletion
+      redirect('categories');
+    }
 
     // get the posts related to the category, using the category id
     public function posts($id){

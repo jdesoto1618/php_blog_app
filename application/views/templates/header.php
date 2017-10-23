@@ -103,3 +103,7 @@
       <?php if($this->session->flashdata('login_fail')) : ?>
         <?= '<p class="alert alert-danger login_fail">'.$this->session->flashdata('login_fail').'</p>'; ?>
       <?php endif; ?>
+
+      <?php if($this->session->flashdata('category_deleted')) : ?>
+        <?= '<p class="alert alert-danger category_deleted">'.$this->session->flashdata('category_deleted').'</p>'; ?>
+      <?php endif; ?>

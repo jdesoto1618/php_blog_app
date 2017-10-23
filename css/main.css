@@ -323,3 +323,12 @@ a.pagination_links {
   border-radius: 4px;
   font-weight: bold;
 }
+ /* set color for delete category X */
+ .delete_category {
+  color: red;
+ }
+
+ /* set delete form styles */
+ .delete_category_form {
+   display: inline;
+ }
