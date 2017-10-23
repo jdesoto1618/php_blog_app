@@ -5,8 +5,13 @@
       $this->load->database();
     }
 
-    // get the user posts from the databse. set slug to false by default
-    public function get_posts($slug = FALSE){
+    // get the user posts from the databse. set slug to false by default. parameters passed in must be present in all corresponsing methods between models and controllers. they dont have to share the same name, but the number of parameters passed in must match, or else the app could throw errors
+    public function get_posts($slug = FALSE, $limit = false, $offset = false){
+      // check if limit value is defined for pagination
+      if($limit){
+        // put limit and offset values together, if they exist for pagination. this adds the limit and offset values to the query
+        $this->db->limit($limit, $offset);
+      }
       // check if the slug exists. if not (slug value will become false), return all posts. nothing is passed in if the default slug is posts, so that could mean the user may want to see all posts, or a misclick could simply show all posts
       if($slug ===  false){
         // order the posts by newest first. this will result in the newest post being on top of all others

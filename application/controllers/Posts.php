@@ -1,10 +1,24 @@
 <?php
   class Posts extends CI_Controller{
-    public function index(){
+    // pass offset variable in, with default value specified. this is solely for pagination
+    public function index($offset = 0){
+      // CI pagination. store values in config array
+      $config['base_url'] = base_url('posts/index');
+      // total rows from the posts database. set this to be dynamic. count_all takes in a table as a parameter
+      $config['total_rows'] = $this->db->count_all('posts');
+      // ser posts per page to show. this blog is local, so use a small number, 5 or less
+      $config['per_page'] = 5;
+      // uri_segment settings. which segment is to be dynamically set for the blog uri? depends on hwo the routes and pages are set up, but for this app, http://localhost:8080/php_blog/posts/next_page would be segment 2, because the segments start at 1 after php_blog/
+      // setting this to 2 didn't fully work though. the route for showing all posts became specified in the routes as $route['posts/index']. because of that, had to update the segment to 3
+      $config['uri_segment'] = 3;
+      // add class to pagination markup
+      $config['attributes'] = array('class' => 'pagination_links');
+      // init pagiantion once the required (>3) config options are set
+      $this->pagination->initialize($config);
       // set page title array
       $data['title'] = 'Blog Posts';
-      // set posts in data array. use the get_posts method from the Post model. User lowercase when referencing a model
-      $data['posts'] = $this->post_model->get_posts();
+      // set posts in data array. use the get_posts method from the Post model. User lowercase when referencing a model. pass in false as the first parameter. this is because in the model, there is a slug value for the corresponding function get_posts. this is what false handles first. for pagination, we need to dynamically set the page numbers, so offset will be passed in here as well. also, the per page must be passed in so the program knows how many posts to show per page. corresponding methods must have matching parameters passed in to each other between controllers and models
+      $data['posts'] = $this->post_model->get_posts(false, $config['per_page'] = 5, $offset);
       // these lines will load the header and footer on each page in views/posts... make sure to set these pages up in the views. This is done so the same header and footer are shown on any page created inside views/posts
 			$this->load->view('templates/header');
 			$this->load->view('posts/index', $data);
