@@ -13,6 +13,7 @@
       <?php if($this->session->userdata('user_id') == $category['fk_user_id']): ?>
         <!-- submit delete request if the user wants to delete their category -->
         <form class="delete_category_form" action="categories/delete/<?= $category['id']; ?>" method="post">
+          <!-- leaving off the first btn when specifying btn btn-link will not give the link a bootstrap styling -->
           <input type="submit" class="btn-link delete_category" value="&times;">
         </form>
         <!-- since I had already set the display for the li's to be block, had to move the closing anchor tag here after setting the delete form to have display: inline in the css. this allowed the delete category X and the category name to be displayed inline  -->
