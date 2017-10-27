@@ -34,15 +34,15 @@
             <li><a href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a></li>
             <li><a href="<?php echo base_url(); ?>posts">All Posts</a></li>
             <!-- add dropdown menu for post categories and creating a category. note: do NOT close off the li for the dropdown! counter-intuitively, this will cause it to not work -->
-            <!-- if the user is logged in, show the post categories and create category options -->
-            <?php if($this->session->userdata('logged_in')): ?>
               <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Post Categories
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="<?php echo base_url(); ?>categories">Show Categories</a></li>
-                <li><a href="<?php echo base_url(); ?>categories/create">Create a Category</a></li>
+                <!-- if the user is logged in, show the create category options -->
+                <?php if($this->session->userdata('logged_in')): ?>
+                  <li><a href="<?php echo base_url(); ?>categories/create">Create a Category</a></li>
+                <?php endif; ?>
               </ul>
-            <?php endif; ?>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
