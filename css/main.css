@@ -6,12 +6,15 @@ body {
 
 /* set bg image styling to cover entire home page */
 .bg_image {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  width: 100%; /* set image width to the same width as its container div */
+  border-radius: 4px;
+}
+
+/* set cursor for bg_image on hover */
+.bg_image:hover {
+  /* set custom cursor by defining picture url. always use another preset cursor as a fallback */
+  /* url property for cursor has some sort of size limit for the image. unsure what it is. wouldn't show until I had tried a 100x100 image. even that is too large, but still it finally showed up after using that size */
+  cursor: url("../images/resized-pencil-icon.png"), auto;
 }
 
 /*set navbar edges to be square*/
@@ -32,6 +35,22 @@ body {
   font-size: 20px; /* increase font size for p tag */
   background: #FDF3E7; /* same background color as page */
   border: none;
+}
+
+/* set styles for home page title */
+.home_page_title {
+  font-size: 50px;
+}
+
+/* set styles for home section title */
+.home_section_title {
+  font-weight: bold;
+}
+
+/* set styles for home section body paragraph */
+.home_section_body {
+  margin-top: 20px;
+  font-style: italic;
 }
 
 /* set styles on login fail */
