@@ -6,7 +6,7 @@
     <div class="form-container login">
       <!-- syntax on form_open is ('controller_name/method_name') -->
       <?= form_open('users/login'); ?>
-        <!-- <div class="row"> -->
+          <h3 class="text-center login_title">Enter Login Information</h3>
           <!-- use bootstrap grid layout, adjust offset until form is centered -->
           <!-- username field for login with client side required -->
           <div class="form-group">

@@ -2,6 +2,7 @@
 <div class="form-container registration">
   <!-- form open looks in the controller(users)/method(register). this is what will be run when the user clicks sign up -->
   <?= form_open('users/register', array('class' => 'register_form')); ?>
+  <h3 class="text-center new_user">New User Information</h3>
     <!-- post title, category, image fields -->
     <div class="form-group">
       <!-- form control makes the input field block level and styles it -->

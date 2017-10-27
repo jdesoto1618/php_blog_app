@@ -51,7 +51,7 @@
     // user login
     public function login(){
       // set page title
-      $data['title'] = 'Login';
+      $data['title'] = 'Account Login';
       // validation rules for user sign up form. set_rules() syntax is field name in the view, display name for error messages, and rule to set, such as required. to chain multiple rules, do not use whitespace between pipes
       $this->form_validation->set_rules('username', 'Username', 'required');
       $this->form_validation->set_rules('password', 'Password', 'required');

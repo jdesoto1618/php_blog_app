@@ -177,8 +177,7 @@ h1.text-center {
 
 /* set styles for create, edit post forms */
 .post_form,
-.edit_form,
-.register_form {
+.edit_form, {
   /* set padding */
   padding: 30px;
 }
@@ -205,6 +204,14 @@ h1.text-center {
   margin-top: 30px; /* add space between h1 page title and the form */
 }
 
+/* set styles for registration form */
+.register_form {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
 /* set styles for category form div */
 .category_form {
   background: #0fc6c6;
@@ -218,8 +225,18 @@ h1.text-center {
 
 /* set styles for login form */
 .login {
-  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  padding-left: 70px;
+  padding-right: 70px;
   margin-left: 19vw; /* center the login form on the page */
+}
+
+/* set styles for login title text */
+.login_title,
+.new_user {
+  margin-top: -10px;
+  margin-bottom: 20px;
 }
 
 /* set styles for add post glyphicon */
